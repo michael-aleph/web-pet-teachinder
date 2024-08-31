@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Web project</title>
+
+    <script type="module" src="js/validateUser.js"></script>
+    <script type="module" src="js/filterUsers.js"></script>
+    <script type="module" src="js/sortUsers.js"></script>
+    <script type="module" src="js/loadUsers.js"></script>
+    <script type="module" src="js/countryToRegion.js"></script>
+    <script type="module" src="js/createTeacherCard.js"></script>
+    <script type="module" src="js/loadAndDisplayTopTeachers.js"></script>
+    <script type="module" src="js/showTeacherInfo.js"></script>
+    <script type="module" src="js/hideTeacherInfo.js"></script>
+    <script type="module" src="js/showAddTeacherPopUp.js"></script>
+    <script type="module" src="js/hideAddTeacherPopUp.js"></script>
+    <script type="module" src="js/updateTopTeachersGrid.js"></script>
+    <script type="module" src="js/loadAndDisplayStatistics.js"></script>
+    <script type="module" src="js/createStatisticsTable.js"></script>
+    <script type="module" src="js/searchAndShowTeacher.js"></script>
+    <script type="module" src="js/createSearchFieldAndButton.js"></script>
+    <script type="module" src="js/addOnClickToAddTeacherButtons.js"></script>
+    <script type="module" src="js/loadFavoriteSection.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="header-logo">
+                    <a href="#">
+                        <img class="logo" src="images/logo.png" alt="Logo">
+                    </a>
+                    <a href="#">
+                        <img class="logo-hover" src="images/logo-hovered.png" alt="Logo">
+                    </a>
+                </div>
+
+
+                <div class="header-search-block" id="header-search-block">
+                </div>
+            </div>
+
+            <div class="header-bottom">
+                <nav class="header-and-footer-nav">
+                    <ul>
+                        <a href="#teachers">
+                            <li>Teachers</li>
+                        </a>
+                        <a href="#statistics">
+                            <li>Statistics</li>
+                        </a>
+                        <a href="#favorites">
+                            <li>Favorites</li>
+                        </a>
+                        <a href="#about">
+                            <li>About</li>
+                        </a>
+                    </ul>
+                </nav>
+
+                <button id="first-add-teacher-button" type="button" class="btn">Add teacher</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Top Teachers -->
+        <section id="teachers" class="container section">
+            <h2 class="section-title-paddings">Top Teachers</h2>
+
+            <div class="teachers-filters">
+                <div class="teacher-filter">
+                    <label for="age">Age</label>
+                    <select id="age" name="age">
+                        <option value="18-31">18-31</option>
+                        <option value="32-45">32-45</option>
+                        <option value="46-58">46-58</option>
+                        <option value="59-71">59-71</option>
+                    </select>
+                </div>
+
+                <div class="teacher-filter">
+                    <label for="region">Region</label>
+                    <select id="region" name="region">
+                        <option value="Europe">Europe</option>
+                        <option value="Asia">Asia</option>
+                        <option value="Africa">Africa</option>
+                        <option value="Australia">Australia</option>
+                        <option value="North America">North America</option>
+                        <option value="South America">South America</option>
+                    </select>
+                </div>
+
+                <div class="teacher-filter">
+                    <label for="sex">Sex</label>
+                    <select id="sex" name="sex">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+
+                <div class="teacher-filter">
+                    <input type="checkbox" id="photo" name="photo">
+                    <label for="photo">Only with photo</label>
+                </div>
+
+                <div class="teacher-filter">
+                    <input type="checkbox" id="favorites" name="favorites">
+                    <label for="favorites">Only favorites</label>
+                </div>
+            </div>
+
+            <div class="teachers-grid" id="teachers-grid">
+                
+            </div>
+        </section>
+
+        <!-- Statistics -->
+        <section id="statistics" class="container section">
+            <h2 class="section-title-paddings">Statistics</h2>
+
+            <table id="table" class="statistics-table">
+                <thead>
+                    <tr>
+                        <th>Name<img class="statistics-table-head-arrow" src="images/blue-arrow-down.png" alt="arrow">
+                        </th>
+                        <th>Specialty<img class="statistics-table-head-arrow" src="images/blue-arrow-down.png"
+                                alt="arrow"></th>
+                        <th>Age<img class="statistics-table-head-arrow" src="images/blue-arrow-down.png" alt="arrow">
+                        </th>
+                        <th>Gender<img class="statistics-table-head-arrow" src="images/blue-arrow-down.png" alt="arrow">
+                        </th>
+                        <th>Nationality<img class="statistics-table-head-arrow" src="images/blue-arrow-down.png"
+                                alt="arrow"></th>
+                    </tr>
+                </thead>
+
+                <tbody id="statistics-table-body">
+                </tbody>
+            </table>
+
+            <div class="teachers-table-pagination" id="teachers-table-pagination">
+            </div>
+        </section>
+
+        <!-- Favorites -->
+        <section id="section-favorites" class="container section">
+            <!-- <h2 class="section-title-paddings">Favorites</h2>
+
+            <div class="favorites-slider">
+                <img class="favourites-slider-arrow favourites-slider-left-arrow" src="images/left-arrow.png"
+                    alt="Left arrow">
+                <img class="favourites-slider-arrow favourites-slider-right-arrow" src="images/right-arrow.png"
+                    alt="Right arrow">
+                <img class="favourites-slider-arrow favourites-slider-left-arrow-hovered"
+                    src="images/left-arrow-hovered.png" alt="Left arrow">
+                <img class="favourites-slider-arrow favourites-slider-right-arrow-hovered"
+                    src="images/right-arrow-hovered.png" alt="Right arrow">
+
+                <div class="favorites-slider-grid">
+                    <div class="teacher-card" onclick="show('teacher-info-popup')">
+                        <div class="teacher-card-photo">
+                            <img src="https://images.unsplash.com/photo-1557296387-5358ad7997bb?q=80&w=1957&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="Teacher photo">
+                        </div>
+                        <p class="teacher-card-full-name">Ella Curtis</p>
+                        <p class="teacher-card-country">Italy</p>
+                    </div>
+                </div>
+            </div> -->
+        </section>
+
+        <!-- About -->
+        <section id="about" class="container section about-section">
+            <div class="about-text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut efficitur ipsum sit amet ligula hendrerit
+                    aliquet. Ut sapien velit, ultricies in velit et, imperdiet vehicula odio. Praesent rhoncus ex quis
+                    velit
+                    dictum dignissim ac eu purus. Suspendisse id turpis metus. Donec accumsan, metus in finibus tempor,
+                    nibh
+                    risus semper dui, sit amet tempus nunc leo nec ipsum. Morbi posuere tortor et vulputate ullamcorper.
+                    Quisque maximus ex at suscipit pulvinar.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut efficitur ipsum sit amet ligula hendrerit
+                    aliquet.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="container">
+        <nav class="header-and-footer-nav">
+            <ul>
+                <a href="#teachers">
+                    <li>Teachers</li>
+                </a>
+                <a href="#statistics">
+                    <li>Statistics</li>
+                </a>
+                <a href="#favorites">
+                    <li>Favorites</li>
+                </a>
+                <a href="#about">
+                    <li>About</li>
+                </a>
+            </ul>
+        </nav>
+
+        <button id="second-add-teacher-button" type="button" class="btn">Add teacher</button>
+    </footer>
+</body>
+
+</html>
